@@ -1,0 +1,27 @@
+<% unless @bookings.empty? %>
+<div class="row">
+  <h2>YEARLY REPORT</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>value</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @bookings.each do|booking| %>
+        <tr>
+          <td>
+            <%= booking.year %>
+          </td>
+          <td>
+            <%= booking.value %>
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>
+<% else %>
+  <h3> NO Records </h3>
+<% end %>

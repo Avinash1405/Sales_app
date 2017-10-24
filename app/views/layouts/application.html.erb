@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SalesApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+	  	<% unless flash.empty? %>
+			<script type="text/javascript">
+		      	<% flash.each do |f| %>
+		     	 toastr['<%= f[0].to_s %>']('<%= f[1] %>');
+		      	<% end %>
+			</script>
+	 	<% end %>
+    <%= yield %>
+  </body>
+</html>

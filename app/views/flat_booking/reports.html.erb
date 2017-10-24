@@ -1,0 +1,26 @@
+<div class="container" style="width:100%">
+<div class="center" style="margin-top:30px">
+	<%= form_tag(root_path, method: "get",remote: true, class:"form-inline") do %>
+		<div class="form-group">
+			<%= text_field_tag :startDate,nil, placeholder: 'Start Date',class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%= text_field_tag :endDate, nil, placeholder: 'End Date',class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<label class="radio-inline">
+				<%= radio_button_tag(:type, "monthly") %>
+				Monthly
+			</label>
+			<label class="radio-inline">
+				<%= radio_button_tag(:type, "yearly") %>
+				Yearly
+			</label>
+		</div>
+		
+	  	<%= submit_tag("Go",class: "btn btn-default") %>
+	<% end %>
+	<div id="report">
+	</div>	
+</div>
+</div>

@@ -1,0 +1,33 @@
+<% unless @bookings.empty? %>
+  <div class="row">
+    <h2>MONTHLY REPORT</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>value</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @bookings.each_with_index do|booking,index| %>
+            <% if(booking.year != @bookings[index-1].year) %>
+              <tr>
+                <td colspan="2" style="background-color:red"><%= booking.year %></td>
+              </tr>
+            <% else %>
+              <tr>
+                <td>
+                  <%= get_month_name(booking.month) %>
+                </td>
+                <td>
+                  <%= booking.value %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <h3> NO Records </h3>
+<% end %>

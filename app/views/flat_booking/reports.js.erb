@@ -1,0 +1,9 @@
+<% if flash[:error].present?%>
+	toastr['error']('<%= flash[:error] %>');
+<% else %>
+	<%if params[:type] == "yearly" %>
+		$("#report").html("<%= escape_javascript(render 'yearly_report_table') %>");
+	<% else %>
+		$("#report").html("<%= escape_javascript(render 'monthly_report_table') %>");
+	<% end %>
+<% end %>
